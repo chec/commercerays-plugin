@@ -1,6 +1,6 @@
 import augmentStaticProps from './augmentStaticProps';
 import withCommerceRays from './withCommerceRays';
-import createGetStaticProps from './getStaticProps';
+import createGetStaticProps from './createGetStaticProps';
 import useCommerceRay from './useCommerceRay';
 import CommerceRaysContext from './context';
 

@@ -24,10 +24,11 @@
     "microbundle": "^0.13.0"
   },
   "peerDependencies": {
-    "@chec/react-commercejs-hooks": "0.0.9",
+    "@chec/react-commercejs-hooks": "*",
     "react": ">=17"
   },
   "optionalDependencies": {
+    "@chec/react-commercejs-hooks": "*",
     "react": ">=17"
   }
 }

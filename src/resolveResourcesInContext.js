@@ -27,7 +27,7 @@ export default async function resolveResourcesInContext (commerce, schema, conte
     }
 
     // Skip entries that aren't loaded through Commerce.js
-    if (!['product'].includes(object.type)) {
+    if (!['product', 'products'].includes(object.type)) {
       return accumulator;
     }
 
@@ -63,6 +63,18 @@ export default async function resolveResourcesInContext (commerce, schema, conte
         promises.push((async () => {
           set(newValues, resource.key, await commerce.products.retrieve(resource.value))
         })());
+        break;
+      case 'products':
+        if (!Array.isArray(resource.value)) {
+          return;
+        }
+        promises.push((async () => {
+          set(newValues, resource.key, await commerce.products.list({
+            query: resource.value.join(','),
+            limit: resource.value.length,
+          }).then((products) => products.data))
+        })());
+        break;
     }
   })
 
