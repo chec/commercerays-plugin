@@ -13,7 +13,7 @@
   <a href="https://npmjs.org/package/@chec/commercerays-plugin">
     <img src="https://img.shields.io/npm/dw/@chec/commercerays-plugin.svg" alt="Downloads/week" />
   </a>
-    <a href="https://github.com/chec/commerce.js/blob/master/packages/commercerays-plugin/package.json">
+    <a href="https://github.com/chec/commercerays-plugin/blob/master/LICENSE.md">
     <img src="https://img.shields.io/npm/l/@chec/commercerays-plugin" alt="License" />
   </a>
   <br>
