@@ -5,7 +5,7 @@ import CommerceRaysContext from './context';
 import connect from '../connect';
 import resolveResourcesInContext from '../resolveResourcesInContext';
 
-const withCommerceRay = (schema, defaults) => (Component) => ({
+const withCommerceRay = (schema, defaults, commerceConfig = {}) => (Component) => ({
   merchant: merchantProp,
   preview,
   rayContext: initialContext,
@@ -44,7 +44,10 @@ const withCommerceRay = (schema, defaults) => (Component) => ({
     const sdk = new Commerce(
       publicKey,
       false,
-      { url: process.env.NEXT_PUBLIC_CHEC_API_DOMAIN || 'https://api.chec.io' },
+      {
+        url: process.env.NEXT_PUBLIC_CHEC_API_DOMAIN || 'https://api.chec.io',
+        ...commerceConfig,
+      },
     );
     setCommerce(sdk);
 
