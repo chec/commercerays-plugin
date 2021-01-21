@@ -1,15 +1,15 @@
 import createGetStaticProps from './createGetStaticProps';
 
-const augmentStaticProps = (schema) => async (staticProps = {}) => {
-  const getStaticProps = createGetStaticProps(schema);
-  const defaults = await getStaticProps();
+const augmentStaticProps = (schema, defaults = {}) => async (staticProps = {}) => {
+  const getStaticProps = createGetStaticProps(schema, defaults);
+  const parentProps = await getStaticProps();
 
   return {
     ...staticProps,
-    ...defaults,
+    ...parentProps,
     props: {
       ...(staticProps.props || {}),
-      ...defaults.props,
+      ...parentProps.props,
     }
   }
 }
