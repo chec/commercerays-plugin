@@ -24,7 +24,7 @@ export default (context, schema, defaults) => {
     }
 
     // Skip images if they have an ID (ie. has come from chec assets API)
-    if (object.type === 'image' && value && typeof value === 'object' && value.id) {
+    if (object.type === 'image' && value && Array.isArray(value) && value[0].id) {
       return;
     }
 
