@@ -117,7 +117,7 @@ const withCommerceRay = (schema, defaults, commerceConfig = {}) => (Component) =
   return (
     <CommerceContext.Provider value={commerce}>
       <CommerceRaysContext.Provider value={rayContext}>
-        <Component {...props} merchant={merchant} />
+        <Component {...props} merchant={merchant} preview={preview} />
       </CommerceRaysContext.Provider>
     </CommerceContext.Provider>
   );
