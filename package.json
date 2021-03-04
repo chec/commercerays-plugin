@@ -1,6 +1,6 @@
 {
   "name": "@chec/commercerays-plugin",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Integrate directly with an editor within the Chec Dashboard - allowing customisation of your project by the merchant",
   "main": "dist/rays-plugin.js",
   "source": "src/index.js",
