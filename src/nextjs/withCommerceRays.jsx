@@ -70,6 +70,7 @@ const withCommerceRay = (schema, defaults, commerceConfig = {}) => (Component) =
         // Create a Commerce.js instance
         const sdk = new Commerce(providedKey, false, {
           url: apiUrl || 'https://api.chec.io',
+          ...commerceConfig,
         });
         setCommerce(sdk);
         setPublicKey(providedKey);
