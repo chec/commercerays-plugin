@@ -3,7 +3,7 @@ import getSavedContext from '../getSavedContext';
 import resolveResourcesInContext from '../resolveResourcesInContext';
 import addMissingValues from '../addMissingValues';
 
-export default function createGetStaticProps(schema, defaults = {}) {
+export default function createGetStaticProps(schema, defaults = {}, commerceConfig = {}) {
   return async () => {
     const preview = process.env.COMMERCEJS_RAYS_MODE === 'preview';
     const domain = process.env.NEXT_PUBLIC_CHEC_API_DOMAIN || 'https://api.chec.io';
@@ -12,6 +12,7 @@ export default function createGetStaticProps(schema, defaults = {}) {
     if (!preview) {
       const commerce = new Commerce(process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY, false, {
         url: domain,
+        ...commerceConfig,
       });
       merchant = await commerce.merchants.about();
     }
@@ -25,6 +26,7 @@ export default function createGetStaticProps(schema, defaults = {}) {
       .then((context) => context && resolveResourcesInContext(
         new Commerce(process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY, false, {
           url: domain,
+          ...commerceConfig,
         }),
         schema,
         context,
